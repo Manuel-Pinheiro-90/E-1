@@ -1,0 +1,57 @@
+﻿@using E_1; 
+@model E_1.CV
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Informazioni Personali</h1>
+    <p><strong>Nome:</strong> @Model.InformazioniPersonali.Name </p>
+    <p><strong>Cognome:</strong> @Model.InformazioniPersonali.Cognome</p>
+    <p><strong>Telefono:</strong> @Model.InformazioniPersonali.Telefono</p>
+    <p><strong>Email:</strong> @Model.InformazioniPersonali.Email</p>
+
+    <h1>Studi Effettuati</h1>
+    @foreach (var studio in Model.StudiEffettuati)
+    {
+        <p><strong>Qualifica:</strong> @studio.Qualifica</p>
+        <p><strong>Istituto:</strong> @studio.Istituto</p>
+        <p><strong>Tipo:</strong> @studio.Tipo</p>
+        <p><strong>Dal:</strong> @studio.Dal.ToShortDateString()</p>
+        <p><strong>Al:</strong> @studio.Al.ToShortDateString()</p>
+    }
+
+    <h1>Impieghi</h1>
+    @foreach (var impiego in Model.Impieghi)
+    {
+        <p><strong>Azienda:</strong> @impiego.Esperienza.Azienda</p>
+        <p><strong>Job Title:</strong> @impiego.Esperienza.JobTitle</p>
+        <p><strong>Dal:</strong> @impiego.Esperienza.Dal.ToShortDateString()</p>
+        <p><strong>Al:</strong> @impiego.Esperienza.Al.ToShortDateString()</p>
+        <p><strong>Descrizione:</strong> @impiego.Esperienza.Descrizione</p>
+        <p><strong>Compiti:</strong> @impiego.Esperienza.Compiti</p>
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
